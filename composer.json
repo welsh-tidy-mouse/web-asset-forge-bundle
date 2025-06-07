@@ -1,0 +1,44 @@
+{
+    "name": "welsh-tidy-mouse/web-asset-forge-bundle",
+    "description": "A bundle to smoothly manage your web assets wihtout an headache",
+    "type": "symfony-bundle",
+    "require": {
+        "php": "^8.3",
+        "symfony/filesystem": "^7.0",
+        "symfony/http-client": "^7.0",
+        "symfony/asset": "^7.0",
+        "symfony/framework-bundle": "^7.0",
+        "welsh-tidy-mouse/binary-fetcher": "dev-main",
+        "welsh-tidy-mouse/binary-providers": "dev-main"
+    },
+    "require-dev": {
+        "symfony/console": "^7.0",
+        "symfony/finder": "^7.0",
+        "symfony/process": "^7.0",
+        "phpstan/phpstan": "^1.11",
+        "friendsofphp/php-cs-fixer": "^3.50",
+        "phpmd/phpmd": "^2.14"
+    },
+    "license": "WTFPL",
+    "suggest": {
+        "welsh-tidy-mouse/binary-providers": "Providers for common web asset processing binaries."
+    },
+    "autoload": {
+        "psr-4": {
+            "WelshTidyMouse\\WebAssetForgeBundle\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": false,
+    "scripts": {
+        "lint": "phpstan analyse src",
+        "cs": "php-cs-fixer fix --config=.php-cs-fixer.php --allow-risky=yes",
+        "md": "phpmd src text phpmd.xml",
+        "check": [
+            "@cs",
+            "@test",
+            "@lint",
+            "@md"
+        ]
+    }
+}
